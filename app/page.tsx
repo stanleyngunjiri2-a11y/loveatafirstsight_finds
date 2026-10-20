@@ -48,19 +48,19 @@ const collections = [
 number: "01",
 title: "The everyday edit",
 subtitle: "Your wardrobe, refreshed.",
-href: "/shop?category=everyday",
+href: "/shop?category=Hoodies",
 },
 {
 number: "02",
 title: "The statement edit",
 subtitle: "Made to be remembered.",
-href: "/shop?category=statement",
+href: "/shop?category=Shirts",
 },
 {
 number: "03",
 title: "The special edit",
 subtitle: "Find something unexpected.",
-href: "/offers",
+href: "/shop?category=T-shirts",
 },
 ];
 
@@ -81,7 +81,7 @@ return ( <Link
   <span className="flex flex-col">
     <span
       className={`font-serif text-[12px] font-semibold tracking-[-0.035em] sm:text-sm ${
-        light ? "text-white" : "text-[#241b1d]"
+        light ? "text-white" : "text-[#252124]"
       }`}
     >
       LOVEATFIRSTSIGHT
@@ -89,7 +89,7 @@ return ( <Link
 
     <span
       className={`mt-1 text-[9px] font-medium uppercase tracking-[0.35em] ${
-        light ? "text-[#dfbfc5]" : "text-[#672c3b]"
+        light ? "text-[#D7A6AE]" : "text-[#702B40]"
       }`}
     >
       FINDS
@@ -105,7 +105,7 @@ function SocialLinks({ light = false }: { light?: boolean }) {
 const className = `flex h-10 w-10 items-center justify-center rounded-full border transition ${
     light
       ? "border-white/20 text-white hover:border-white hover:bg-white/10"
-      : "border-[#e9dfdc] text-[#672c3b] hover:border-[#672c3b]"
+      : "border-[#E8DFDE] text-[#702B40] hover:border-[#702B40]"
   }`;
 
 return ( <div className="flex items-center gap-2"> <a
@@ -141,14 +141,14 @@ return ( <div className="flex items-center gap-2"> <a
 }
 
 export default function Home() {
-return ( <main className="overflow-hidden"> <div className="bg-[#672c3b] px-4 py-2.5 text-center text-[9px] font-semibold uppercase tracking-[0.16em] text-white sm:text-[10px] sm:tracking-[0.23em]">
+return ( <main className="overflow-hidden"> <div className="bg-[#702B40] px-4 py-2.5 text-center text-[9px] font-semibold uppercase tracking-[0.16em] text-white sm:text-[10px] sm:tracking-[0.23em]">
 A little something special is waiting for you <span className="mx-2 text-[#e7c6cb]">✳</span>
 Discover your next favourite find </div>
 
 
   <header
     id="top"
-    className="relative z-20 border-b border-[#e9dfdc] bg-[#fbf8f5]"
+    className="relative z-20 border-b border-[#E8DFDE] bg-[#FAF7F4]"
   >
     <div className="container flex min-h-[78px] items-center justify-between gap-4 sm:min-h-[92px]">
       <BrandMark />
@@ -178,7 +178,7 @@ Discover your next favourite find </div>
         <Link
           href="/cart"
           aria-label="View shopping bag"
-          className="flex h-10 w-10 items-center justify-center rounded-full border border-[#e9dfdc] transition hover:border-[#672c3b]"
+          className="flex h-10 w-10 items-center justify-center rounded-full border border-[#E8DFDE] transition hover:border-[#702B40]"
         >
           <ShoppingBag size={18} strokeWidth={1.6} />
         </Link>
@@ -187,7 +187,7 @@ Discover your next favourite find </div>
           href={WHATSAPP_URL}
           target="_blank"
           rel="noreferrer"
-          className="hidden min-h-11 items-center gap-2 bg-[#672c3b] px-5 text-[10px] font-semibold uppercase tracking-[0.12em] text-white transition hover:bg-[#47202b] sm:flex"
+          className="hidden min-h-11 items-center gap-2 bg-[#702B40] px-5 text-[10px] font-semibold uppercase tracking-[0.12em] text-white transition hover:bg-[#512033] sm:flex"
         >
           <MessageCircle size={15} />
           Let's talk
@@ -196,12 +196,12 @@ Discover your next favourite find </div>
         <details className="relative lg:hidden">
           <summary
             aria-label="Open navigation menu"
-            className="flex h-10 w-10 cursor-pointer list-none items-center justify-center rounded-full border border-[#e9dfdc] text-xl"
+            className="flex h-10 w-10 cursor-pointer list-none items-center justify-center rounded-full border border-[#E8DFDE] text-xl"
           >
             ☰
           </summary>
 
-          <nav className="absolute right-0 top-12 z-50 flex w-52 flex-col border border-[#e9dfdc] bg-[#fbf8f5] p-2 shadow-xl">
+          <nav className="absolute right-0 top-12 z-50 flex w-52 flex-col border border-[#E8DFDE] bg-[#FAF7F4] p-2 shadow-xl">
             {[
               ["Home", "/"],
               ["Shop", "/shop"],
@@ -213,7 +213,7 @@ Discover your next favourite find </div>
               <Link
                 key={href}
                 href={href}
-                className="border-b border-[#e9dfdc] px-4 py-3 text-xs last:border-0 hover:text-[#672c3b]"
+                className="border-b border-[#E8DFDE] px-4 py-3 text-xs last:border-0 hover:text-[#702B40]"
               >
                 {label}
               </Link>
@@ -223,7 +223,7 @@ Discover your next favourite find </div>
               href={WHATSAPP_URL}
               target="_blank"
               rel="noreferrer"
-              className="m-2 bg-[#672c3b] px-3 py-3 text-center text-xs text-white"
+              className="m-2 bg-[#702B40] px-3 py-3 text-center text-xs text-white"
             >
               Chat on WhatsApp
             </a>
@@ -236,19 +236,19 @@ Discover your next favourite find </div>
   <section className="container grid min-h-[590px] items-center gap-10 py-14 md:min-h-[650px] md:grid-cols-[1.02fr_0.98fr] md:gap-12 md:py-16 lg:gap-20">
     <div className="relative z-10 py-3 md:py-10">
       <div className="mb-7 flex items-center gap-3">
-        <span className="h-px w-9 bg-[#672c3b]" />
-        <p className="eyebrow text-[#672c3b]">Your style, your story</p>
+        <span className="h-px w-9 bg-[#702B40]" />
+        <p className="eyebrow text-[#702B40]">Your style, your story</p>
       </div>
 
-      <h1 className="max-w-[620px] font-serif text-[clamp(48px,8vw,88px)] font-normal leading-[0.99] tracking-[-0.065em] text-[#241b1d]">
+      <h1 className="max-w-[620px] font-serif text-[clamp(48px,8vw,88px)] font-normal leading-[0.99] tracking-[-0.065em] text-[#252124]">
         Some things
         <br />
         just feel like
         <br />
-        <span className="italic text-[#8c5362]">you.</span>
+        <span className="italic text-[#B77D8C]">you.</span>
       </h1>
 
-      <p className="mt-7 max-w-[410px] text-sm leading-7 text-[#76696a] sm:text-base sm:leading-8">
+      <p className="mt-7 max-w-[410px] text-sm leading-7 text-[#76696A] sm:text-base sm:leading-8">
         Discover pieces that speak to your style, express your personality,
         and make getting dressed feel a little more special.
       </p>
@@ -264,24 +264,24 @@ Discover your next favourite find </div>
         </Link>
       </div>
 
-      <div className="mt-12 flex items-center gap-4 border-t border-[#e9dfdc] pt-6">
+      <div className="mt-12 flex items-center gap-4 border-t border-[#E8DFDE] pt-6">
         <div className="flex -space-x-2">
-          <span className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-[#fbf8f5] bg-[#e7d0cf] font-serif text-sm text-[#672c3b]">
+          <span className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-[#FAF7F4] bg-[#D7A6AE] font-serif text-sm text-[#702B40]">
             L
           </span>
-          <span className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-[#fbf8f5] bg-[#dfc5b4] font-serif text-sm text-[#672c3b]">
+          <span className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-[#FAF7F4] bg-[#E8D0C7] font-serif text-sm text-[#702B40]">
             F
           </span>
-          <span className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-[#fbf8f5] bg-[#d9d2df] font-serif text-sm text-[#672c3b]">
+          <span className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-[#FAF7F4] bg-[#E8DFDE] font-serif text-sm text-[#702B40]">
             ♡
           </span>
         </div>
 
         <div>
-          <p className="text-xs font-semibold text-[#241b1d]">
+          <p className="text-xs font-semibold text-[#252124]">
             Find what feels right
           </p>
-          <p className="mt-1 text-[11px] text-[#76696a]">
+          <p className="mt-1 text-[11px] text-[#76696A]">
             Your next favourite piece starts here.
           </p>
         </div>
@@ -293,7 +293,7 @@ Discover your next favourite find </div>
 
       <div className="relative grid min-h-[390px] grid-cols-[1fr_0.78fr] gap-3 sm:min-h-[490px] sm:gap-4">
         <div className="relative flex min-h-[350px] flex-col items-center justify-center overflow-hidden bg-[#eadbd7] px-4 text-center sm:min-h-[450px]">
-          <span className="absolute left-4 top-4 text-[9px] font-semibold tracking-[0.2em] text-[#672c3b]">
+          <span className="absolute left-4 top-4 text-[9px] font-semibold tracking-[0.2em] text-[#702B40]">
             THE LOVE EDIT
           </span>
 
@@ -308,13 +308,13 @@ Discover your next favourite find </div>
             />
           </div>
 
-          <p className="max-w-[190px] font-serif text-2xl leading-tight tracking-[-0.04em] text-[#47202b] sm:text-3xl">
+          <p className="max-w-[190px] font-serif text-2xl leading-tight tracking-[-0.04em] text-[#512033] sm:text-3xl">
             Fall in love
             <br />
             with your finds.
           </p>
 
-          <span className="mt-4 text-[9px] uppercase tracking-[0.23em] text-[#672c3b]">
+          <span className="mt-4 text-[9px] uppercase tracking-[0.23em] text-[#702B40]">
             Style with feeling
           </span>
         </div>
@@ -324,21 +324,21 @@ Discover your next favourite find </div>
             <Sparkles
               size={30}
               strokeWidth={1.1}
-              className="text-[#672c3b]"
+              className="text-[#702B40]"
             />
 
-            <p className="mt-5 font-serif text-2xl italic text-[#47202b] sm:text-3xl">
+            <p className="mt-5 font-serif text-2xl italic text-[#512033] sm:text-3xl">
               Your kind
               <br />
               of beautiful.
             </p>
 
-            <span className="mt-3 text-[8px] uppercase tracking-[0.17em] text-[#76696a]">
+            <span className="mt-3 text-[8px] uppercase tracking-[0.17em] text-[#76696A]">
               Made for your mood
             </span>
           </div>
 
-          <div className="flex min-h-[125px] flex-col justify-center bg-[#672c3b] p-5 text-white sm:min-h-[165px] sm:p-7">
+          <div className="flex min-h-[125px] flex-col justify-center bg-[#702B40] p-5 text-white sm:min-h-[165px] sm:p-7">
             <Heart size={19} strokeWidth={1.3} />
 
             <p className="mt-4 font-serif text-xl italic sm:text-2xl">
@@ -355,8 +355,8 @@ Discover your next favourite find </div>
         </div>
       </div>
 
-      <div className="absolute -bottom-4 -left-3 flex items-center gap-2 bg-[#fbf8f5] px-4 py-3 shadow-sm sm:-left-6">
-        <Sparkles size={14} className="text-[#672c3b]" />
+      <div className="absolute -bottom-4 -left-3 flex items-center gap-2 bg-[#FAF7F4] px-4 py-3 shadow-sm sm:-left-6">
+        <Sparkles size={14} className="text-[#702B40]" />
         <span className="text-[9px] font-semibold uppercase tracking-[0.13em]">
           Curated with love
         </span>
@@ -364,7 +364,7 @@ Discover your next favourite find </div>
     </div>
   </section>
 
-  <div className="border-y border-[#e9dfdc] bg-white/60">
+  <div className="border-y border-[#E8DFDE] bg-white/60">
     <div className="container grid grid-cols-2 gap-x-5 gap-y-5 py-7 sm:grid-cols-4 sm:py-8">
       {[
         ["01", "Find your style"],
@@ -394,7 +394,7 @@ Discover your next favourite find </div>
         </h2>
       </div>
 
-      <p className="max-w-[340px] text-sm leading-7 text-[#76696a]">
+      <p className="max-w-[340px] text-sm leading-7 text-[#76696A]">
         Every style tells a story. Start exploring and discover the pieces
         that feel unmistakably you.
       </p>
@@ -488,7 +488,7 @@ Discover your next favourite find </div>
         ))}
       </div>
 
-      <p className="mt-5 text-center text-[10px] leading-5 text-[#76696a]">
+      <p className="mt-5 text-center text-[10px] leading-5 text-[#76696A]">
         Browse our collections to discover available products and current
         prices.
       </p>
@@ -497,9 +497,9 @@ Discover your next favourite find </div>
 
   <section className="container py-20 sm:py-28">
     <div className="grid gap-10 md:grid-cols-[0.85fr_1.15fr] md:items-center md:gap-20">
-      <div className="relative mx-auto flex min-h-[330px] w-full max-w-[420px] items-center justify-center overflow-hidden bg-[#e7d9d8] p-8 sm:min-h-[420px]">
-        <div className="absolute left-5 top-5 h-14 w-14 border-l border-t border-[#9f727b]" />
-        <div className="absolute bottom-5 right-5 h-14 w-14 border-b border-r border-[#9f727b]" />
+      <div className="relative mx-auto flex min-h-[330px] w-full max-w-[420px] items-center justify-center overflow-hidden bg-[#F4E7E8] p-8 sm:min-h-[420px]">
+        <div className="absolute left-5 top-5 h-14 w-14 border-l border-t border-[#B77D8C]" />
+        <div className="absolute bottom-5 right-5 h-14 w-14 border-b border-r border-[#B77D8C]" />
 
         <div className="relative h-48 w-48 sm:h-60 sm:w-60">
           <Image
@@ -511,7 +511,7 @@ Discover your next favourite find </div>
           />
         </div>
 
-        <span className="absolute bottom-8 text-[9px] font-semibold uppercase tracking-[0.24em] text-[#672c3b]">
+        <span className="absolute bottom-8 text-[9px] font-semibold uppercase tracking-[0.24em] text-[#702B40]">
           Find something you love
         </span>
       </div>
@@ -523,7 +523,7 @@ Discover your next favourite find </div>
           Your style should feel like <em>yourself.</em>
         </h2>
 
-        <p className="mt-6 max-w-[480px] text-sm leading-8 text-[#76696a]">
+        <p className="mt-6 max-w-[480px] text-sm leading-8 text-[#76696A]">
           LOVEATFIRSTSIGHT FINDS is about discovering styles that make you
           feel confident, expressive, and comfortable being yourself.
           We're here to help you explore your options and find pieces you
@@ -537,10 +537,10 @@ Discover your next favourite find </div>
     </div>
   </section>
 
-  <section className="bg-[#47202b] py-16 text-white sm:py-20">
+  <section className="bg-[#512033] py-16 text-white sm:py-20">
     <div className="container grid gap-8 md:grid-cols-[1fr_auto] md:items-center">
       <div>
-        <p className="eyebrow text-[#dfbfc5]">
+        <p className="eyebrow text-[#D7A6AE]">
           Let's find your next favourite
         </p>
 
@@ -558,7 +558,7 @@ Discover your next favourite find </div>
         href={WHATSAPP_URL}
         target="_blank"
         rel="noreferrer"
-        className="flex min-h-12 w-fit items-center justify-center gap-3 bg-white px-6 text-[10px] font-semibold uppercase tracking-[0.13em] text-[#47202b] transition hover:bg-[#ead9d9]"
+        className="flex min-h-12 w-fit items-center justify-center gap-3 bg-white px-6 text-[10px] font-semibold uppercase tracking-[0.13em] text-[#512033] transition hover:bg-[#ead9d9]"
       >
         <MessageCircle size={17} />
         Chat on WhatsApp
@@ -567,12 +567,12 @@ Discover your next favourite find </div>
     </div>
   </section>
 
-  <footer className="bg-[#fbf8f5]">
+  <footer className="bg-[#FAF7F4]">
     <div className="container grid gap-10 py-12 sm:grid-cols-2 lg:grid-cols-[1.3fr_0.7fr_1fr] lg:gap-16 lg:py-16">
       <div>
         <BrandMark />
 
-        <p className="mt-5 max-w-[330px] text-xs leading-7 text-[#76696a]">
+        <p className="mt-5 max-w-[330px] text-xs leading-7 text-[#76696A]">
           A place to discover personal style, explore new finds, and fall
           in love with the little things that make an outfit yours.
         </p>
@@ -583,9 +583,9 @@ Discover your next favourite find </div>
       </div>
 
       <div>
-        <p className="eyebrow text-[#672c3b]">Explore</p>
+        <p className="eyebrow text-[#702B40]">Explore</p>
 
-        <nav className="mt-5 flex flex-col items-start gap-3 text-xs text-[#76696a]">
+        <nav className="mt-5 flex flex-col items-start gap-3 text-xs text-[#76696A]">
           <Link className="footer-link" href="/shop">
             Shop all
           </Link>
@@ -605,17 +605,17 @@ Discover your next favourite find </div>
       </div>
 
       <div>
-        <p className="eyebrow text-[#672c3b]">Come say hello</p>
+        <p className="eyebrow text-[#702B40]">Come say hello</p>
 
         <a
           href={WHATSAPP_URL}
           target="_blank"
           rel="noreferrer"
-          className="mt-5 flex items-start gap-3 text-xs leading-6 text-[#76696a] hover:text-[#672c3b]"
+          className="mt-5 flex items-start gap-3 text-xs leading-6 text-[#76696A] hover:text-[#702B40]"
         >
           <MessageCircle
             size={16}
-            className="mt-1 shrink-0 text-[#672c3b]"
+            className="mt-1 shrink-0 text-[#702B40]"
           />
           <span>
             WhatsApp
@@ -624,8 +624,8 @@ Discover your next favourite find </div>
           </span>
         </a>
 
-        <div className="mt-4 flex items-start gap-3 text-xs leading-6 text-[#76696a]">
-          <MapPin size={16} className="mt-1 shrink-0 text-[#672c3b]" />
+        <div className="mt-4 flex items-start gap-3 text-xs leading-6 text-[#76696A]">
+          <MapPin size={16} className="mt-1 shrink-0 text-[#702B40]" />
           <span>
             Pickup point
             <br />
@@ -637,15 +637,15 @@ Discover your next favourite find </div>
       </div>
     </div>
 
-    <div className="border-t border-[#e9dfdc]">
-      <div className="container flex flex-col gap-3 py-5 text-[10px] text-[#76696a] sm:flex-row sm:items-center sm:justify-between">
+    <div className="border-t border-[#E8DFDE]">
+      <div className="container flex flex-col gap-3 py-5 text-[10px] text-[#76696A] sm:flex-row sm:items-center sm:justify-between">
         <p>
           © {new Date().getFullYear()} LOVEATFIRSTSIGHT FINDS. All rights
           reserved.
         </p>
 
         <p className="flex items-center gap-1">
-          Made with <Heart size={11} className="text-[#8c5362]" /> for your
+          Made with <Heart size={11} className="text-[#B77D8C]" /> for your
           next favourite find.
         </p>
       </div>
@@ -657,7 +657,7 @@ Discover your next favourite find </div>
     target="_blank"
     rel="noreferrer"
     aria-label="Chat with LOVEATFIRSTSIGHT FINDS on WhatsApp"
-    className="fixed bottom-5 right-5 z-40 flex h-12 w-12 items-center justify-center rounded-full bg-[#672c3b] text-white shadow-lg transition hover:scale-105 hover:bg-[#47202b]"
+    className="fixed bottom-5 right-5 z-40 flex h-12 w-12 items-center justify-center rounded-full bg-[#702B40] text-white shadow-lg transition hover:scale-105 hover:bg-[#512033]"
   >
     <MessageCircle size={21} />
   </a>

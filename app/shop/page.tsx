@@ -49,15 +49,15 @@ export default async function ShopPage({
       : products.filter((product) => product.category === selectedCategory);
 
   return (
-    <main className="min-h-screen bg-[#fbf8f5] text-[#241b1d]">
-      <header className="border-b border-[#e9dfdc] px-5 py-5 sm:px-10">
+    <main className="min-h-screen bg-[#FAF7F4] text-[#252124]">
+      <header className="border-b border-[#E8DFDE] px-5 py-5 sm:px-10">
         <div className="mx-auto flex max-w-7xl items-center justify-between">
           <Link href="/" className="font-serif text-lg font-semibold tracking-tight">
-            LOVEATFIRSTSIGHT <span className="text-[#672c3b]">FINDS</span>
+            LOVEATFIRSTSIGHT <span className="text-[#702B40]">FINDS</span>
           </Link>
           <Link
             href="/"
-            className="text-sm text-[#672c3b] transition hover:opacity-70"
+            className="text-sm text-[#702B40] transition hover:opacity-70"
           >
             Back to home
           </Link>
@@ -65,20 +65,20 @@ export default async function ShopPage({
       </header>
 
       <section className="mx-auto max-w-7xl px-5 py-12 sm:px-10 sm:py-16">
-        <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-[#672c3b]">
+        <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-[#702B40]">
           Your next favourite find
         </p>
 
         <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
           <div>
             <h1 className="font-serif text-4xl sm:text-6xl">The Shop</h1>
-            <p className="mt-3 max-w-lg text-sm leading-6 text-[#74686a]">
+            <p className="mt-3 max-w-lg text-sm leading-6 text-[#76696A]">
               Discover pieces that express your style. Find something you love,
               then order directly through WhatsApp.
             </p>
           </div>
 
-          <div className="flex items-center gap-2 text-sm text-[#74686a]">
+          <div className="flex items-center gap-2 text-sm text-[#76696A]">
             <ShoppingBag size={17} />
             {filteredProducts.length} available{" "}
             {filteredProducts.length === 1 ? "piece" : "pieces"}
@@ -87,7 +87,7 @@ export default async function ShopPage({
 
         <nav
           aria-label="Product categories"
-          className="my-9 flex flex-wrap gap-2 border-b border-[#e9dfdc] pb-5"
+          className="my-9 flex flex-wrap gap-2 border-b border-[#E8DFDE] pb-5"
         >
           {categories.map((category) => {
             const active = category === selectedCategory;
@@ -102,8 +102,8 @@ export default async function ShopPage({
                 href={href}
                 className={`rounded-full border px-5 py-2.5 text-sm transition ${
                   active
-                    ? "border-[#672c3b] bg-[#672c3b] text-white"
-                    : "border-[#e5d8d5] bg-white text-[#514346] hover:border-[#672c3b]"
+                    ? "border-[#702B40] bg-[#702B40] text-white"
+                    : "border-[#E8DFDE] bg-white text-[#512033] hover:border-[#702B40]"
                 }`}
               >
                 {category}
@@ -113,14 +113,14 @@ export default async function ShopPage({
         </nav>
 
         {filteredProducts.length === 0 ? (
-          <div className="rounded-2xl border border-[#e9dfdc] bg-white px-6 py-20 text-center">
-            <ShoppingBag className="mx-auto mb-5 text-[#672c3b]" size={34} />
+          <div className="rounded-2xl border border-[#E8DFDE] bg-white px-6 py-20 text-center">
+            <ShoppingBag className="mx-auto mb-5 text-[#702B40]" size={34} />
             <h2 className="font-serif text-2xl">
               {products.length === 0
                 ? "Your next favourite piece is on its way"
                 : "No pieces in this category yet"}
             </h2>
-            <p className="mx-auto mt-3 max-w-md text-sm leading-6 text-[#74686a]">
+            <p className="mx-auto mt-3 max-w-md text-sm leading-6 text-[#76696A]">
               {products.length === 0
                 ? "Our collection is being prepared. Check back soon or contact us on WhatsApp."
                 : "Explore another category to discover our available collection."}
@@ -129,7 +129,7 @@ export default async function ShopPage({
               href="https://wa.me/254794625388"
               target="_blank"
               rel="noreferrer"
-              className="mt-7 inline-flex items-center gap-2 rounded-full bg-[#672c3b] px-6 py-3 text-sm text-white"
+              className="mt-7 inline-flex items-center gap-2 rounded-full bg-[#702B40] px-6 py-3 text-sm text-white"
             >
               <MessageCircle size={17} />
               Ask about available pieces
@@ -140,7 +140,7 @@ export default async function ShopPage({
             {filteredProducts.map((product) => (
               <article key={product.id} className="group min-w-0">
                 <Link href={`/shop/${product.slug}`} className="block">
-                  <div className="relative aspect-[3/4] overflow-hidden rounded-xl bg-[#eee7e4]">
+                  <div className="relative aspect-[3/4] overflow-hidden rounded-xl bg-[#F4E7E8]">
                     <Image
                       src={product.image_url}
                       alt={product.name}
@@ -151,13 +151,13 @@ export default async function ShopPage({
                     />
                     {product.old_price &&
                       Number(product.old_price) > Number(product.price) && (
-                        <span className="absolute left-2 top-2 rounded-full bg-white px-2.5 py-1 text-[10px] font-semibold text-[#672c3b] sm:left-3 sm:top-3 sm:text-xs">
+                        <span className="absolute left-2 top-2 rounded-full bg-white px-2.5 py-1 text-[10px] font-semibold text-[#702B40] sm:left-3 sm:top-3 sm:text-xs">
                           SALE
                         </span>
                       )}
                   </div>
 
-                  <p className="mt-4 text-[10px] uppercase tracking-[0.2em] text-[#8b7377] sm:text-xs">
+                  <p className="mt-4 text-[10px] uppercase tracking-[0.2em] text-[#76696A] sm:text-xs">
                     {product.category}
                   </p>
                   <h2 className="mt-1 line-clamp-2 text-sm font-medium sm:text-base">
@@ -171,7 +171,7 @@ export default async function ShopPage({
                   </span>
                   {product.old_price &&
                     Number(product.old_price) > Number(product.price) && (
-                      <span className="text-xs text-[#9b8b8c] line-through">
+                      <span className="text-xs text-[#76696A] line-through">
                         KSh {Number(product.old_price).toLocaleString("en-KE")}
                       </span>
                     )}
@@ -179,7 +179,7 @@ export default async function ShopPage({
 
                 <Link
                   href={`/shop/${product.slug}`}
-                  className="mt-4 inline-flex w-full items-center justify-center rounded-full border border-[#672c3b] px-3 py-2.5 text-xs font-medium text-[#672c3b] transition hover:bg-[#672c3b] hover:text-white sm:text-sm"
+                  className="mt-4 inline-flex w-full items-center justify-center rounded-full border border-[#702B40] px-3 py-2.5 text-xs font-medium text-[#702B40] transition hover:bg-[#702B40] hover:text-white sm:text-sm"
                 >
                   View product
                 </Link>
@@ -189,7 +189,7 @@ export default async function ShopPage({
         )}
       </section>
 
-      <footer className="border-t border-[#e9dfdc] px-5 py-8 text-center text-xs text-[#74686a]">
+      <footer className="border-t border-[#E8DFDE] px-5 py-8 text-center text-xs text-[#76696A]">
         © {new Date().getFullYear()} LOVEATFIRSTSIGHT FINDS · Find what you love.
       </footer>
     </main>
