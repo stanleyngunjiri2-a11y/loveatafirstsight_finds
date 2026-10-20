@@ -187,7 +187,7 @@ Discover your next favourite find </div>
           href={WHATSAPP_URL}
           target="_blank"
           rel="noreferrer"
-          className="hidden min-h-11 items-center gap-2 bg-[#000000] px-5 text-[10px] font-semibold uppercase tracking-[0.12em] text-white transition hover:bg-[#222222] sm:flex"
+          className="hidden min-h-11 items-center gap-2 rounded-sm border border-black bg-white px-5 text-[10px] font-semibold uppercase tracking-[0.12em] text-black transition-colors duration-200 hover:bg-[#F3F3F3] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 sm:flex"
         >
           <MessageCircle size={15} />
           Let's talk
@@ -558,7 +558,7 @@ Discover your next favourite find </div>
         href={WHATSAPP_URL}
         target="_blank"
         rel="noreferrer"
-        className="flex min-h-12 w-fit items-center justify-center gap-3 bg-white px-6 text-[10px] font-semibold uppercase tracking-[0.13em] text-[#222222] transition hover:bg-[#ead9d9]"
+        className="flex min-h-12 w-fit items-center justify-center gap-3 rounded-sm border border-black bg-white px-6 text-[10px] font-semibold uppercase tracking-[0.13em] text-black transition-colors duration-200 hover:bg-[#F3F3F3] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2"
       >
         <MessageCircle size={17} />
         Chat on WhatsApp
