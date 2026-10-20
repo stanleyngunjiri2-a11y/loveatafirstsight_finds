@@ -103,7 +103,7 @@ export default async function ShopPage({
                 aria-current={active ? "page" : undefined}
                 className={`inline-flex min-h-12 items-center justify-center rounded-full border-2 px-6 py-3 text-sm font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 ${
                   active
-                    ? "border-black bg-black text-white shadow-sm"
+                    ? "border-black bg-white text-black shadow-sm"
                     : "border-[#BDBDBD] bg-white text-black hover:border-black hover:bg-[#F3F3F3] active:bg-[#E5E5E5]"
                 }`}
               >
