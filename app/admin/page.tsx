@@ -210,11 +210,11 @@ export default function AdminDashboard() {
   ).length;
 
   return (
-    <main className="min-h-screen bg-[#FAF7F4] text-[#252124]">
-      <header className="border-b border-[#E8DFDE] bg-white">
+    <main className="min-h-screen bg-[#FFFFFF] text-[#000000]">
+      <header className="border-b border-[#E5E5E5] bg-white">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-5 sm:px-8">
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#702B40]">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#000000]">
               LOVEATFIRSTSIGHT FINDS
             </p>
             <h1 className="mt-1 font-serif text-2xl sm:text-3xl">
@@ -224,7 +224,7 @@ export default function AdminDashboard() {
 
           <button
             onClick={logout}
-            className="border border-[#E8DFDE] px-4 py-2 text-sm font-semibold transition hover:bg-[#FAF7F4]"
+            className="border border-[#E5E5E5] px-4 py-2 text-sm font-semibold transition hover:bg-[#FFFFFF]"
           >
             Sign out
           </button>
@@ -251,19 +251,19 @@ export default function AdminDashboard() {
         )}
 
         <div className="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
-          <div className="border border-[#E8DFDE] bg-white p-5">
+          <div className="border border-[#E5E5E5] bg-white p-5">
             <p className="text-sm text-gray-500">Total products</p>
             <p className="mt-2 text-3xl font-semibold">{products.length}</p>
           </div>
 
-          <div className="border border-[#E8DFDE] bg-white p-5">
+          <div className="border border-[#E5E5E5] bg-white p-5">
             <p className="text-sm text-gray-500">Available products</p>
             <p className="mt-2 text-3xl font-semibold">
               {products.filter((p) => p.stock_status === "available").length}
             </p>
           </div>
 
-          <div className="border border-[#E8DFDE] bg-white p-5">
+          <div className="border border-[#E5E5E5] bg-white p-5">
             <p className="text-sm text-gray-500">Pending orders</p>
             <p className="mt-2 text-3xl font-semibold">{pendingOrders}</p>
           </div>
@@ -274,8 +274,8 @@ export default function AdminDashboard() {
             onClick={() => setSection("products")}
             className={`px-5 py-3 text-sm font-semibold ${
               section === "products"
-                ? "bg-[#702B40] text-white"
-                : "border border-[#E8DFDE] bg-white"
+                ? "bg-[#000000] text-white"
+                : "border border-[#E5E5E5] bg-white"
             }`}
           >
             Products
@@ -285,8 +285,8 @@ export default function AdminDashboard() {
             onClick={() => setSection("orders")}
             className={`px-5 py-3 text-sm font-semibold ${
               section === "orders"
-                ? "bg-[#702B40] text-white"
-                : "border border-[#E8DFDE] bg-white"
+                ? "bg-[#000000] text-white"
+                : "border border-[#E5E5E5] bg-white"
             }`}
           >
             Customer orders ({orders.length})
@@ -296,7 +296,7 @@ export default function AdminDashboard() {
             href="/shop"
             target="_blank"
             rel="noreferrer"
-            className="border border-[#E8DFDE] bg-white px-5 py-3 text-sm font-semibold"
+            className="border border-[#E5E5E5] bg-white px-5 py-3 text-sm font-semibold"
           >
             View store ↗
           </a>
@@ -314,14 +314,14 @@ export default function AdminDashboard() {
 
                 <button
                   onClick={() => void loadDashboard()}
-                  className="text-sm font-semibold text-[#702B40] underline"
+                  className="text-sm font-semibold text-[#000000] underline"
                 >
                   Refresh
                 </button>
               </div>
 
               {products.length === 0 ? (
-                <div className="border border-[#E8DFDE] bg-white p-8 text-center">
+                <div className="border border-[#E5E5E5] bg-white p-8 text-center">
                   <p className="font-serif text-xl">No products yet</p>
                   <p className="mt-2 text-sm text-gray-500">
                     Add your first product using the form.
@@ -332,7 +332,7 @@ export default function AdminDashboard() {
                   {products.map((product) => (
                     <article
                       key={product.id}
-                      className="flex flex-col gap-4 border border-[#E8DFDE] bg-white p-4 sm:flex-row"
+                      className="flex flex-col gap-4 border border-[#E5E5E5] bg-white p-4 sm:flex-row"
                     >
                       {product.image_url ? (
                         // eslint-disable-next-line @next/next/no-img-element
@@ -342,13 +342,13 @@ export default function AdminDashboard() {
                           className="h-36 w-full shrink-0 object-cover sm:w-32"
                         />
                       ) : (
-                        <div className="flex h-36 w-full shrink-0 items-center justify-center bg-[#FAF7F4] text-sm text-gray-500 sm:w-32">
+                        <div className="flex h-36 w-full shrink-0 items-center justify-center bg-[#FFFFFF] text-sm text-gray-500 sm:w-32">
                           No image
                         </div>
                       )}
 
                       <div className="min-w-0 flex-1">
-                        <p className="text-xs uppercase tracking-wider text-[#702B40]">
+                        <p className="text-xs uppercase tracking-wider text-[#000000]">
                           {product.category}
                         </p>
 
@@ -383,7 +383,7 @@ export default function AdminDashboard() {
                             href={`/shop/${product.slug}`}
                             target="_blank"
                             rel="noreferrer"
-                            className="text-sm font-semibold text-[#702B40] underline"
+                            className="text-sm font-semibold text-[#000000] underline"
                           >
                             View product
                           </a>
@@ -405,7 +405,7 @@ export default function AdminDashboard() {
               )}
             </section>
 
-            <section className="border border-[#E8DFDE] bg-white p-5 sm:p-6">
+            <section className="border border-[#E5E5E5] bg-white p-5 sm:p-6">
               <h2 className="font-serif text-2xl">Add a product</h2>
 
               <p className="mt-2 text-sm leading-6 text-gray-500">
@@ -428,7 +428,7 @@ export default function AdminDashboard() {
                     onChange={(e) =>
                       setForm({ ...form, name: e.target.value })
                     }
-                    className="w-full border border-[#E8DFDE] px-3 py-3 outline-none focus:border-[#702B40]"
+                    className="w-full border border-[#E5E5E5] px-3 py-3 outline-none focus:border-[#000000]"
                     placeholder="e.g. Oversized Hoodie"
                   />
                 </div>
@@ -446,7 +446,7 @@ export default function AdminDashboard() {
                     onChange={(e) =>
                       setForm({ ...form, category: e.target.value })
                     }
-                    className="w-full border border-[#E8DFDE] bg-white px-3 py-3"
+                    className="w-full border border-[#E5E5E5] bg-white px-3 py-3"
                   >
                     {categories.map((category) => (
                       <option key={category} value={category}>
@@ -473,7 +473,7 @@ export default function AdminDashboard() {
                     onChange={(e) =>
                       setForm({ ...form, price: e.target.value })
                     }
-                    className="w-full border border-[#E8DFDE] px-3 py-3"
+                    className="w-full border border-[#E5E5E5] px-3 py-3"
                     placeholder="1500"
                   />
                 </div>
@@ -494,7 +494,7 @@ export default function AdminDashboard() {
                     onChange={(e) =>
                       setForm({ ...form, oldPrice: e.target.value })
                     }
-                    className="w-full border border-[#E8DFDE] px-3 py-3"
+                    className="w-full border border-[#E5E5E5] px-3 py-3"
                     placeholder="2000"
                   />
                 </div>
@@ -513,7 +513,7 @@ export default function AdminDashboard() {
                     onChange={(e) =>
                       setForm({ ...form, imageUrl: e.target.value })
                     }
-                    className="w-full border border-[#E8DFDE] px-3 py-3"
+                    className="w-full border border-[#E5E5E5] px-3 py-3"
                     placeholder="https://..."
                   />
                   <p className="mt-1 text-xs leading-5 text-gray-500">
@@ -535,7 +535,7 @@ export default function AdminDashboard() {
                     onChange={(e) =>
                       setForm({ ...form, description: e.target.value })
                     }
-                    className="w-full border border-[#E8DFDE] px-3 py-3"
+                    className="w-full border border-[#E5E5E5] px-3 py-3"
                     placeholder="Describe the fit, fabric, sizes and other details..."
                   />
                 </div>
@@ -543,7 +543,7 @@ export default function AdminDashboard() {
                 <button
                   type="submit"
                   disabled={saving}
-                  className="w-full bg-[#702B40] px-5 py-3.5 text-sm font-semibold text-white transition hover:bg-[#512033] disabled:opacity-60"
+                  className="w-full bg-[#000000] px-5 py-3.5 text-sm font-semibold text-white transition hover:bg-[#222222] disabled:opacity-60"
                 >
                   {saving ? "Saving product..." : "Add product"}
                 </button>
@@ -557,14 +557,14 @@ export default function AdminDashboard() {
 
               <button
                 onClick={() => void loadDashboard()}
-                className="text-sm font-semibold text-[#702B40] underline"
+                className="text-sm font-semibold text-[#000000] underline"
               >
                 Refresh orders
               </button>
             </div>
 
             {orders.length === 0 ? (
-              <div className="border border-[#E8DFDE] bg-white p-10 text-center">
+              <div className="border border-[#E5E5E5] bg-white p-10 text-center">
                 <h3 className="font-serif text-xl">No customer orders yet</h3>
                 <p className="mt-2 text-sm text-gray-500">
                   New orders will appear here when checkout is connected.
@@ -575,11 +575,11 @@ export default function AdminDashboard() {
                 {orders.map((order) => (
                   <article
                     key={order.id}
-                    className="border border-[#E8DFDE] bg-white p-5 sm:p-6"
+                    className="border border-[#E5E5E5] bg-white p-5 sm:p-6"
                   >
                     <div className="flex flex-col justify-between gap-4 sm:flex-row">
                       <div>
-                        <p className="text-xs font-semibold uppercase tracking-wider text-[#702B40]">
+                        <p className="text-xs font-semibold uppercase tracking-wider text-[#000000]">
                           Order #{order.id.slice(0, 8)}
                         </p>
 
@@ -591,7 +591,7 @@ export default function AdminDashboard() {
                           href={`https://wa.me/254${order.customer_phone.replace(/\D/g, "").replace(/^0/, "")}`}
                           target="_blank"
                           rel="noreferrer"
-                          className="mt-1 inline-block text-sm text-[#702B40] underline"
+                          className="mt-1 inline-block text-sm text-[#000000] underline"
                         >
                           {order.customer_phone}
                         </a>
@@ -625,7 +625,7 @@ export default function AdminDashboard() {
                       </p>
                     )}
 
-                    <div className="my-5 border-t border-[#E8DFDE] pt-4">
+                    <div className="my-5 border-t border-[#E5E5E5] pt-4">
                       <h4 className="mb-3 text-sm font-semibold">
                         Items ordered
                       </h4>
@@ -648,14 +648,14 @@ export default function AdminDashboard() {
                       ))}
                     </div>
 
-                    <div className="flex flex-col gap-3 border-t border-[#E8DFDE] pt-4 sm:flex-row sm:items-center sm:justify-between">
+                    <div className="flex flex-col gap-3 border-t border-[#E5E5E5] pt-4 sm:flex-row sm:items-center sm:justify-between">
                       <span
                         className={`text-sm font-semibold uppercase ${
                           order.status === "completed"
                             ? "text-green-700"
                             : order.status === "cancelled"
                               ? "text-red-700"
-                              : "text-[#702B40]"
+                              : "text-[#000000]"
                         }`}
                       >
                         {order.status}
@@ -671,7 +671,7 @@ export default function AdminDashboard() {
                               e.target.value as CustomerOrder["status"],
                             )
                           }
-                          className="border border-[#E8DFDE] bg-white px-3 py-2"
+                          className="border border-[#E5E5E5] bg-white px-3 py-2"
                         >
                           <option value="pending">Pending</option>
                           <option value="confirmed">Confirmed</option>

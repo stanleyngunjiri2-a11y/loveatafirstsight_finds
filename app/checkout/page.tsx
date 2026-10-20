@@ -128,12 +128,12 @@ export default function CheckoutPage() {
   }
 
   return (
-    <main className="min-h-screen bg-[#FAF7F4] text-[#252124]">
-      <header className="border-b border-[#E8DFDE] bg-white">
+    <main className="min-h-screen bg-[#FFFFFF] text-[#000000]">
+      <header className="border-b border-[#E5E5E5] bg-white">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-5 sm:px-8">
           <Link
             href="/cart"
-            className="inline-flex items-center gap-2 text-sm font-medium text-[#702B40] hover:underline"
+            className="inline-flex items-center gap-2 text-sm font-medium text-[#000000] hover:underline"
           >
             <ArrowLeft size={17} />
             Shopping bag
@@ -141,7 +141,7 @@ export default function CheckoutPage() {
 
           <Link
             href="/"
-            className="font-serif text-base font-semibold tracking-wide text-[#702B40] sm:text-xl"
+            className="font-serif text-base font-semibold tracking-wide text-[#000000] sm:text-xl"
           >
             LOVEATFIRSTSIGHT FINDS
           </Link>
@@ -150,14 +150,14 @@ export default function CheckoutPage() {
 
       <div className="mx-auto max-w-6xl px-5 py-10 sm:px-8 sm:py-14">
         {order ? (
-          <section className="mx-auto max-w-2xl border border-[#E8DFDE] bg-white px-6 py-10 text-center sm:px-12 sm:py-14">
+          <section className="mx-auto max-w-2xl border border-[#E5E5E5] bg-white px-6 py-10 text-center sm:px-12 sm:py-14">
             <CheckCircle2
               size={54}
               strokeWidth={1.4}
               className="mx-auto text-green-700"
             />
 
-            <p className="mt-6 text-xs font-semibold uppercase tracking-[0.2em] text-[#702B40]">
+            <p className="mt-6 text-xs font-semibold uppercase tracking-[0.2em] text-[#000000]">
               Order received
             </p>
 
@@ -170,13 +170,13 @@ export default function CheckoutPage() {
               confirm availability and arrange collection or delivery.
             </p>
 
-            <div className="mt-8 border border-[#E8DFDE] bg-[#FAF7F4] p-5 text-left">
+            <div className="mt-8 border border-[#E5E5E5] bg-[#FFFFFF] p-5 text-left">
               <p className="text-sm text-gray-500">Order reference</p>
               <p className="mt-1 break-all font-semibold">
                 {order.orderId}
               </p>
 
-              <div className="mt-4 flex items-center justify-between gap-4 border-t border-[#E8DFDE] pt-4">
+              <div className="mt-4 flex items-center justify-between gap-4 border-t border-[#E5E5E5] pt-4">
                 <span className="text-sm text-gray-600">
                   Order total
                 </span>
@@ -191,7 +191,7 @@ export default function CheckoutPage() {
                 href={order.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-7 inline-flex w-full items-center justify-center gap-3 rounded-full bg-[#702B40] px-6 py-4 text-sm font-semibold text-white transition hover:bg-[#512033]"
+                className="mt-7 inline-flex w-full items-center justify-center gap-3 rounded-full bg-[#000000] px-6 py-4 text-sm font-semibold text-white transition hover:bg-[#222222]"
               >
                 <MessageCircle size={20} />
                 Send order via WhatsApp
@@ -205,7 +205,7 @@ export default function CheckoutPage() {
 
             <Link
               href="/shop"
-              className="mt-7 inline-flex items-center gap-2 text-sm font-medium text-[#702B40] hover:underline"
+              className="mt-7 inline-flex items-center gap-2 text-sm font-medium text-[#000000] hover:underline"
             >
               Continue shopping
               <ArrowRight size={16} />
@@ -214,7 +214,7 @@ export default function CheckoutPage() {
         ) : (
           <>
             <div className="mb-9">
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#702B40]">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#000000]">
                 Almost yours
               </p>
 
@@ -228,15 +228,15 @@ export default function CheckoutPage() {
             </div>
 
             {!ready ? (
-              <div className="border border-[#E8DFDE] bg-white p-10 text-center">
+              <div className="border border-[#E5E5E5] bg-white p-10 text-center">
                 Loading your order...
               </div>
             ) : items.length === 0 ? (
-              <div className="border border-[#E8DFDE] bg-white px-6 py-14 text-center">
+              <div className="border border-[#E5E5E5] bg-white px-6 py-14 text-center">
                 <ShoppingBag
                   size={42}
                   strokeWidth={1.2}
-                  className="mx-auto text-[#702B40]"
+                  className="mx-auto text-[#000000]"
                 />
 
                 <h2 className="mt-5 font-serif text-2xl">
@@ -249,7 +249,7 @@ export default function CheckoutPage() {
 
                 <Link
                   href="/shop"
-                  className="mt-7 inline-flex items-center gap-2 rounded-full bg-[#702B40] px-6 py-3.5 text-sm font-semibold text-white hover:bg-[#512033]"
+                  className="mt-7 inline-flex items-center gap-2 rounded-full bg-[#000000] px-6 py-3.5 text-sm font-semibold text-white hover:bg-[#222222]"
                 >
                   Explore the collection
                   <ArrowRight size={17} />
@@ -259,7 +259,7 @@ export default function CheckoutPage() {
               <div className="grid items-start gap-8 lg:grid-cols-[minmax(0,1fr)_350px]">
                 <form
                   onSubmit={handleSubmit}
-                  className="space-y-7 border border-[#E8DFDE] bg-white p-5 sm:p-8"
+                  className="space-y-7 border border-[#E5E5E5] bg-white p-5 sm:p-8"
                 >
                   <section>
                     <h2 className="font-serif text-2xl">
@@ -288,7 +288,7 @@ export default function CheckoutPage() {
                             setCustomerName(event.target.value)
                           }
                           placeholder="Enter your full name"
-                          className="w-full border border-[#E8DFDE] bg-white px-4 py-3.5 text-sm outline-none transition focus:border-[#702B40]"
+                          className="w-full border border-[#E5E5E5] bg-white px-4 py-3.5 text-sm outline-none transition focus:border-[#000000]"
                         />
                       </div>
 
@@ -313,7 +313,7 @@ export default function CheckoutPage() {
                             setCustomerPhone(event.target.value)
                           }
                           placeholder="e.g. 0712345678"
-                          className="w-full border border-[#E8DFDE] bg-white px-4 py-3.5 text-sm outline-none transition focus:border-[#702B40]"
+                          className="w-full border border-[#E5E5E5] bg-white px-4 py-3.5 text-sm outline-none transition focus:border-[#000000]"
                         />
 
                         <p className="mt-2 text-xs text-gray-500">
@@ -323,7 +323,7 @@ export default function CheckoutPage() {
                     </div>
                   </section>
 
-                  <section className="border-t border-[#E8DFDE] pt-7">
+                  <section className="border-t border-[#E5E5E5] pt-7">
                     <h2 className="font-serif text-2xl">
                       Fulfilment method
                     </h2>
@@ -335,13 +335,13 @@ export default function CheckoutPage() {
                         aria-pressed={fulfilmentMethod === "pickup"}
                         className={`border p-4 text-left transition ${
                           fulfilmentMethod === "pickup"
-                            ? "border-[#702B40] bg-[#fbf4f3]"
-                            : "border-[#E8DFDE] hover:border-[#bda7a6]"
+                            ? "border-[#000000] bg-[#fbf4f3]"
+                            : "border-[#E5E5E5] hover:border-[#bda7a6]"
                         }`}
                       >
                         <MapPin
                           size={21}
-                          className="text-[#702B40]"
+                          className="text-[#000000]"
                         />
 
                         <span className="mt-3 block text-sm font-semibold">
@@ -359,13 +359,13 @@ export default function CheckoutPage() {
                         aria-pressed={fulfilmentMethod === "delivery"}
                         className={`border p-4 text-left transition ${
                           fulfilmentMethod === "delivery"
-                            ? "border-[#702B40] bg-[#fbf4f3]"
-                            : "border-[#E8DFDE] hover:border-[#bda7a6]"
+                            ? "border-[#000000] bg-[#fbf4f3]"
+                            : "border-[#E5E5E5] hover:border-[#bda7a6]"
                         }`}
                       >
                         <ShoppingBag
                           size={21}
-                          className="text-[#702B40]"
+                          className="text-[#000000]"
                         />
 
                         <span className="mt-3 block text-sm font-semibold">
@@ -399,7 +399,7 @@ export default function CheckoutPage() {
                             setDeliveryLocation(event.target.value)
                           }
                           placeholder="Enter your estate, area, town and any helpful directions"
-                          className="w-full resize-y border border-[#E8DFDE] px-4 py-3.5 text-sm outline-none transition focus:border-[#702B40]"
+                          className="w-full resize-y border border-[#E5E5E5] px-4 py-3.5 text-sm outline-none transition focus:border-[#000000]"
                         />
 
                         <p className="mt-2 text-xs leading-5 text-gray-500">
@@ -410,7 +410,7 @@ export default function CheckoutPage() {
                     )}
                   </section>
 
-                  <section className="border-t border-[#E8DFDE] pt-7">
+                  <section className="border-t border-[#E5E5E5] pt-7">
                     <label
                       htmlFor="notes"
                       className="block font-serif text-2xl"
@@ -430,7 +430,7 @@ export default function CheckoutPage() {
                       value={notes}
                       onChange={(event) => setNotes(event.target.value)}
                       placeholder="Anything we should know?"
-                      className="mt-4 w-full resize-y border border-[#E8DFDE] px-4 py-3.5 text-sm outline-none transition focus:border-[#702B40]"
+                      className="mt-4 w-full resize-y border border-[#E5E5E5] px-4 py-3.5 text-sm outline-none transition focus:border-[#000000]"
                     />
                   </section>
 
@@ -446,7 +446,7 @@ export default function CheckoutPage() {
                   <button
                     type="submit"
                     disabled={submitting || items.length === 0}
-                    className="flex w-full items-center justify-center gap-3 rounded-full bg-[#702B40] px-6 py-4 text-sm font-semibold text-white transition hover:bg-[#512033] disabled:cursor-not-allowed disabled:opacity-60"
+                    className="flex w-full items-center justify-center gap-3 rounded-full bg-[#000000] px-6 py-4 text-sm font-semibold text-white transition hover:bg-[#222222] disabled:cursor-not-allowed disabled:opacity-60"
                   >
                     {submitting ? (
                       <>
@@ -470,7 +470,7 @@ export default function CheckoutPage() {
                   </p>
                 </form>
 
-                <aside className="border border-[#E8DFDE] bg-white p-5 sm:p-7 lg:sticky lg:top-6">
+                <aside className="border border-[#E5E5E5] bg-white p-5 sm:p-7 lg:sticky lg:top-6">
                   <h2 className="font-serif text-2xl">
                     Order summary
                   </h2>
@@ -498,13 +498,13 @@ export default function CheckoutPage() {
                     ))}
                   </div>
 
-                  <div className="mt-6 space-y-3 border-t border-[#E8DFDE] pt-5">
+                  <div className="mt-6 space-y-3 border-t border-[#E5E5E5] pt-5">
                     <div className="flex justify-between gap-4 text-sm">
                       <span className="text-gray-500">Subtotal</span>
                       <span>{money(subtotal)}</span>
                     </div>
 
-                    <div className="flex justify-between gap-4 border-t border-[#E8DFDE] pt-4">
+                    <div className="flex justify-between gap-4 border-t border-[#E5E5E5] pt-4">
                       <span className="font-semibold">Total</span>
                       <span className="text-lg font-semibold">
                         {money(subtotal)}
@@ -519,7 +519,7 @@ export default function CheckoutPage() {
 
                   <Link
                     href="/cart"
-                    className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-[#702B40] hover:underline"
+                    className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-[#000000] hover:underline"
                   >
                     <ArrowLeft size={15} />
                     Edit shopping bag

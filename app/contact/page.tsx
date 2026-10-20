@@ -14,24 +14,24 @@ export const metadata = {
 
 export default function ContactPage() {
   return (
-    <main className="min-h-screen bg-[#FAF7F4] text-[#252124]">
-      <header className="border-b border-[#E8DFDE] bg-white">
+    <main className="min-h-screen bg-[#FFFFFF] text-[#000000]">
+      <header className="border-b border-[#E5E5E5] bg-white">
         <div className="container flex min-h-20 items-center justify-between gap-4">
           <Link href="/" className="font-serif text-sm font-semibold sm:text-base">
-            LOVEATFIRSTSIGHT <span className="text-[#702B40]">FINDS</span>
+            LOVEATFIRSTSIGHT <span className="text-[#000000]">FINDS</span>
           </Link>
-          <Link href="/shop" className="text-sm text-[#702B40] hover:underline">
+          <Link href="/shop" className="text-sm text-[#000000] hover:underline">
             Continue shopping
           </Link>
         </div>
       </header>
 
       <section className="container py-14 sm:py-20">
-        <p className="eyebrow text-[#702B40]">We'd love to hear from you</p>
+        <p className="eyebrow text-[#000000]">We'd love to hear from you</p>
         <h1 className="mt-4 max-w-3xl font-serif text-5xl leading-tight tracking-tight sm:text-6xl">
           Let's find what you're looking for.
         </h1>
-        <p className="mt-5 max-w-2xl text-sm leading-7 text-[#76696A]">
+        <p className="mt-5 max-w-2xl text-sm leading-7 text-[#666666]">
           Have a question about a product, pricing, availability, or pickup?
           Contact us through one of the channels below and we'll help you with
           the details.
@@ -42,12 +42,12 @@ export default function ContactPage() {
             href={WHATSAPP_URL}
             target="_blank"
             rel="noreferrer"
-            className="border border-[#E8DFDE] bg-white p-7 transition hover:border-[#D7A6AE] hover:shadow-lg"
+            className="border border-[#E5E5E5] bg-white p-7 transition hover:border-[#D9D9D9] hover:shadow-lg"
           >
-            <MessageCircle size={24} className="text-[#702B40]" />
+            <MessageCircle size={24} className="text-[#000000]" />
             <h2 className="mt-5 font-serif text-2xl">WhatsApp</h2>
-            <p className="mt-2 text-sm text-[#76696A]">0794 625 388</p>
-            <span className="mt-6 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#702B40]">
+            <p className="mt-2 text-sm text-[#666666]">0794 625 388</p>
+            <span className="mt-6 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#000000]">
               Start a conversation <ArrowUpRight size={14} />
             </span>
           </a>
@@ -56,12 +56,12 @@ export default function ContactPage() {
             href={INSTAGRAM_URL}
             target="_blank"
             rel="noreferrer"
-            className="border border-[#E8DFDE] bg-white p-7 transition hover:border-[#D7A6AE] hover:shadow-lg"
+            className="border border-[#E5E5E5] bg-white p-7 transition hover:border-[#D9D9D9] hover:shadow-lg"
           >
-            <span aria-hidden="true" className="text-2xl font-semibold text-[#702B40]">◎</span>
+            <span aria-hidden="true" className="text-2xl font-semibold text-[#000000]">◎</span>
             <h2 className="mt-5 font-serif text-2xl">Instagram</h2>
-            <p className="mt-2 text-sm text-[#76696A]">@loveatfirstsight_finds</p>
-            <span className="mt-6 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#702B40]">
+            <p className="mt-2 text-sm text-[#666666]">@loveatfirstsight_finds</p>
+            <span className="mt-6 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#000000]">
               Visit Instagram <ArrowUpRight size={14} />
             </span>
           </a>
@@ -70,27 +70,27 @@ export default function ContactPage() {
             href={TIKTOK_URL}
             target="_blank"
             rel="noreferrer"
-            className="border border-[#E8DFDE] bg-white p-7 transition hover:border-[#D7A6AE] hover:shadow-lg"
+            className="border border-[#E5E5E5] bg-white p-7 transition hover:border-[#D9D9D9] hover:shadow-lg"
           >
-            <span className="text-xl font-bold text-[#702B40]">♪</span>
+            <span className="text-xl font-bold text-[#000000]">♪</span>
             <h2 className="mt-5 font-serif text-2xl">TikTok</h2>
-            <p className="mt-2 break-words text-sm text-[#76696A]">
+            <p className="mt-2 break-words text-sm text-[#666666]">
               @loveatfirstsight_finds
             </p>
-            <span className="mt-6 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#702B40]">
+            <span className="mt-6 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#000000]">
               Visit TikTok <ArrowUpRight size={14} />
             </span>
           </a>
         </div>
 
-        <div className="mt-8 flex items-start gap-4 border border-[#E8DFDE] bg-[#F4E7E8] p-6 sm:p-8">
-          <MapPin size={22} className="mt-1 shrink-0 text-[#702B40]" />
+        <div className="mt-8 flex items-start gap-4 border border-[#E5E5E5] bg-[#F5F5F5] p-6 sm:p-8">
+          <MapPin size={22} className="mt-1 shrink-0 text-[#000000]" />
           <div>
             <h2 className="font-serif text-2xl">Pickup location</h2>
-            <p className="mt-2 text-sm leading-6 text-[#76696A]">
+            <p className="mt-2 text-sm leading-6 text-[#666666]">
               Dynamic Mall, Shop ML32, Ground Floor.
             </p>
-            <p className="mt-2 text-sm leading-6 text-[#76696A]">
+            <p className="mt-2 text-sm leading-6 text-[#666666]">
               Contact us before visiting to confirm arrangements for your order.
             </p>
           </div>

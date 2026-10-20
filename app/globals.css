@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --background: #FAF7F4;
-  --foreground: #252124;
-  --burgundy: #702B40;
-  --burgundy-dark: #512033;
-  --rose: #F4E7E8;
-  --rose-accent: #D7A6AE;
-  --muted: #76696A;
-  --border: #E8DFDE;
+  --background: #FFFFFF;
+  --foreground: #000000;
+  --burgundy: #000000;
+  --burgundy-dark: #222222;
+  --rose: #F5F5F5;
+  --rose-accent: #D9D9D9;
+  --muted: #666666;
+  --border: #E5E5E5;
   --surface: #FFFFFF;
 }
 
@@ -62,7 +62,7 @@ img {
 }
 
 ::selection {
-  background: #702B40;
+  background: #000000;
   color: #FFFFFF;
 }
 
@@ -80,7 +80,7 @@ img {
 }
 
 .section-label {
-  color: #702B40;
+  color: #000000;
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.2em;
@@ -107,8 +107,8 @@ img {
   justify-content: center;
   gap: 10px;
   padding: 0 24px;
-  border: 1px solid #702B40;
-  background: #702B40;
+  border: 1px solid #000000;
+  background: #000000;
   color: #FFFFFF;
   font-size: 10px;
   font-weight: 700;
@@ -119,8 +119,8 @@ img {
 
 .primary-button:hover {
   transform: translateY(-2px);
-  border-color: #512033;
-  background: #512033;
+  border-color: #222222;
+  background: #222222;
 }
 
 .outline-button {
@@ -130,9 +130,9 @@ img {
   justify-content: center;
   gap: 10px;
   padding: 0 24px;
-  border: 1px solid #D7A6AE;
+  border: 1px solid #D9D9D9;
   background: #FFFFFF;
-  color: #702B40;
+  color: #000000;
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -141,8 +141,8 @@ img {
 }
 
 .outline-button:hover {
-  border-color: #702B40;
-  background: #F4E7E8;
+  border-color: #000000;
+  background: #F5F5F5;
 }
 
 .product-placeholder {
@@ -150,13 +150,13 @@ img {
   min-height: 260px;
   align-items: center;
   justify-content: center;
-  background: #F4E7E8;
+  background: #F5F5F5;
 }
 
 .nav-link {
   position: relative;
   padding-block: 10px;
-  color: #76696A;
+  color: #666666;
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.11em;
@@ -170,7 +170,7 @@ img {
   bottom: 3px;
   left: 0;
   height: 1px;
-  background: #702B40;
+  background: #000000;
   content: "";
   transform: scaleX(0);
   transform-origin: left;
@@ -178,7 +178,7 @@ img {
 }
 
 .nav-link:hover {
-  color: #702B40;
+  color: #000000;
 }
 
 .nav-link:hover::after {
@@ -195,18 +195,18 @@ img {
 }
 
 .category-rose, .collection-1 {
-  background: #F4E7E8;
-  color: #702B40;
+  background: #F5F5F5;
+  color: #000000;
 }
 
 .category-sand, .collection-2 {
-  background: #F0E4DE;
-  color: #512033;
+  background: #F5F5F5;
+  color: #222222;
 }
 
 .category-plum, .collection-3 {
-  background: #EAD9DE;
-  color: #702B40;
+  background: #EEEEEE;
+  color: #000000;
 }
 
 .category-decoration {
@@ -233,7 +233,7 @@ img {
 }
 
 .footer-link:hover {
-  color: #702B40;
+  color: #000000;
 }
 
 input, textarea, select {
@@ -242,7 +242,7 @@ input, textarea, select {
 
 input:focus-visible, textarea:focus-visible, select:focus-visible,
 button:focus-visible, a:focus-visible {
-  outline: 2px solid #B77D8C;
+  outline: 2px solid #555555;
   outline-offset: 3px;
 }
 

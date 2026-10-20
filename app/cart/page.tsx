@@ -63,12 +63,12 @@ export default function CartPage() {
   }
 
   return (
-    <main className="min-h-screen bg-[#FAF7F4] text-[#252124]">
-      <header className="border-b border-[#E8DFDE] bg-white">
+    <main className="min-h-screen bg-[#FFFFFF] text-[#000000]">
+      <header className="border-b border-[#E5E5E5] bg-white">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-5 sm:px-8">
           <Link
             href="/shop"
-            className="flex items-center gap-2 text-sm font-medium transition hover:text-[#702B40]"
+            className="flex items-center gap-2 text-sm font-medium transition hover:text-[#000000]"
           >
             <ArrowLeft size={17} />
             Continue shopping
@@ -76,7 +76,7 @@ export default function CartPage() {
 
           <Link
             href="/"
-            className="font-serif text-lg font-semibold tracking-wide text-[#702B40] sm:text-xl"
+            className="font-serif text-lg font-semibold tracking-wide text-[#000000] sm:text-xl"
           >
             LOVEATFIRSTSIGHT FINDS
           </Link>
@@ -85,7 +85,7 @@ export default function CartPage() {
 
       <div className="mx-auto max-w-6xl px-5 py-10 sm:px-8 sm:py-14">
         <div className="mb-8">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#702B40]">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#000000]">
             Your selection
           </p>
 
@@ -99,15 +99,15 @@ export default function CartPage() {
         </div>
 
         {!ready ? (
-          <div className="border border-[#E8DFDE] bg-white p-10 text-center">
+          <div className="border border-[#E5E5E5] bg-white p-10 text-center">
             Loading your shopping bag...
           </div>
         ) : items.length === 0 ? (
-          <div className="border border-[#E8DFDE] bg-white px-6 py-16 text-center sm:py-20">
+          <div className="border border-[#E5E5E5] bg-white px-6 py-16 text-center sm:py-20">
             <ShoppingBag
               size={42}
               strokeWidth={1.2}
-              className="mx-auto text-[#702B40]"
+              className="mx-auto text-[#000000]"
             />
 
             <h2 className="mt-5 font-serif text-2xl">
@@ -121,7 +121,7 @@ export default function CartPage() {
 
             <Link
               href="/shop"
-              className="mt-7 inline-flex items-center justify-center gap-2 bg-[#702B40] px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-[#512033]"
+              className="mt-7 inline-flex items-center justify-center gap-2 bg-[#000000] px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-[#222222]"
             >
               Explore the collection
               <ArrowRight size={17} />
@@ -133,7 +133,7 @@ export default function CartPage() {
               {items.map((item) => (
                 <article
                   key={item.productId}
-                  className="flex flex-col gap-4 border border-[#E8DFDE] bg-white p-4 sm:flex-row sm:gap-6 sm:p-5"
+                  className="flex flex-col gap-4 border border-[#E5E5E5] bg-white p-4 sm:flex-row sm:gap-6 sm:p-5"
                 >
                   <Link
                     href={`/shop/${item.slug}`}
@@ -147,11 +147,11 @@ export default function CartPage() {
                         className="h-52 w-full object-cover sm:h-36 sm:w-32"
                       />
                     ) : (
-                      <div className="flex h-52 w-full items-center justify-center bg-[#FAF7F4] sm:h-36 sm:w-32">
+                      <div className="flex h-52 w-full items-center justify-center bg-[#FFFFFF] sm:h-36 sm:w-32">
                         <ShoppingBag
                           size={30}
                           strokeWidth={1.2}
-                          className="text-[#702B40]"
+                          className="text-[#000000]"
                         />
                       </div>
                     )}
@@ -161,7 +161,7 @@ export default function CartPage() {
                     <div>
                       <Link
                         href={`/shop/${item.slug}`}
-                        className="font-serif text-xl transition hover:text-[#702B40]"
+                        className="font-serif text-xl transition hover:text-[#000000]"
                       >
                         {item.name}
                       </Link>
@@ -172,14 +172,14 @@ export default function CartPage() {
                     </div>
 
                     <div className="flex flex-wrap items-center justify-between gap-4">
-                      <div className="inline-flex items-center border border-[#E8DFDE]">
+                      <div className="inline-flex items-center border border-[#E5E5E5]">
                         <button
                           type="button"
                           aria-label={`Decrease quantity of ${item.name}`}
                           onClick={() =>
                             changeQuantity(item, item.quantity - 1)
                           }
-                          className="p-2.5 transition hover:bg-[#FAF7F4]"
+                          className="p-2.5 transition hover:bg-[#FFFFFF]"
                         >
                           <Minus size={15} />
                         </button>
@@ -195,7 +195,7 @@ export default function CartPage() {
                           onClick={() =>
                             changeQuantity(item, item.quantity + 1)
                           }
-                          className="p-2.5 transition hover:bg-[#FAF7F4] disabled:opacity-40"
+                          className="p-2.5 transition hover:bg-[#FFFFFF] disabled:opacity-40"
                         >
                           <Plus size={15} />
                         </button>
@@ -213,7 +213,7 @@ export default function CartPage() {
 
                     <p className="text-sm text-gray-500">
                       Item total:{" "}
-                      <span className="font-semibold text-[#252124]">
+                      <span className="font-semibold text-[#000000]">
                         {money(item.price * item.quantity)}
                       </span>
                     </p>
@@ -223,14 +223,14 @@ export default function CartPage() {
 
               <Link
                 href="/shop"
-                className="inline-flex items-center gap-2 py-3 text-sm font-medium text-[#702B40] transition hover:underline"
+                className="inline-flex items-center gap-2 py-3 text-sm font-medium text-[#000000] transition hover:underline"
               >
                 <ArrowLeft size={16} />
                 Add more finds
               </Link>
             </section>
 
-            <aside className="border border-[#E8DFDE] bg-white p-6 sm:p-7 lg:sticky lg:top-6">
+            <aside className="border border-[#E5E5E5] bg-white p-6 sm:p-7 lg:sticky lg:top-6">
               <h2 className="font-serif text-2xl">Order summary</h2>
 
               <div className="mt-6 flex justify-between gap-4 text-sm">
@@ -241,7 +241,7 @@ export default function CartPage() {
                 <span>{money(subtotal)}</span>
               </div>
 
-              <div className="mt-4 flex justify-between gap-4 border-t border-[#E8DFDE] pt-5">
+              <div className="mt-4 flex justify-between gap-4 border-t border-[#E5E5E5] pt-5">
                 <span className="font-semibold">Subtotal</span>
                 <span className="text-lg font-semibold">
                   {money(subtotal)}
@@ -255,7 +255,7 @@ export default function CartPage() {
 
               <Link
                 href="/checkout"
-                className="mt-7 flex w-full items-center justify-center gap-2 bg-[#702B40] px-5 py-4 text-sm font-semibold text-white transition hover:bg-[#512033]"
+                className="mt-7 flex w-full items-center justify-center gap-2 bg-[#000000] px-5 py-4 text-sm font-semibold text-white transition hover:bg-[#222222]"
               >
                 Proceed to checkout
                 <ArrowRight size={17} />

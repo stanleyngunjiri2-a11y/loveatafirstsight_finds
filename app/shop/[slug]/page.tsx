@@ -73,12 +73,12 @@ export default async function ProductPage({
   const whatsappUrl = `https://wa.me/254794625388?text=${encodeURIComponent(message)}`;
 
   return (
-    <main className="min-h-screen bg-[#FAF7F4] text-[#252124]">
-      <header className="border-b border-[#E8DFDE] bg-white px-5 py-5 sm:px-10">
+    <main className="min-h-screen bg-[#FFFFFF] text-[#000000]">
+      <header className="border-b border-[#E5E5E5] bg-white px-5 py-5 sm:px-10">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4">
           <Link
             href="/shop"
-            className="inline-flex items-center gap-2 text-sm text-[#702B40] transition hover:underline"
+            className="inline-flex items-center gap-2 text-sm text-[#000000] transition hover:underline"
           >
             <ArrowLeft size={17} />
             Back to shop
@@ -86,7 +86,7 @@ export default async function ProductPage({
 
           <Link
             href="/cart"
-            className="text-sm font-semibold text-[#702B40] transition hover:underline"
+            className="text-sm font-semibold text-[#000000] transition hover:underline"
           >
             Shopping bag
           </Link>
@@ -94,7 +94,7 @@ export default async function ProductPage({
       </header>
 
       <section className="mx-auto grid max-w-6xl gap-10 px-5 py-10 sm:px-10 sm:py-16 md:grid-cols-2 md:items-center">
-        <div className="relative mx-auto aspect-[3/4] w-full max-w-lg overflow-hidden rounded-2xl bg-[#F4E7E8]">
+        <div className="relative mx-auto aspect-[3/4] w-full max-w-lg overflow-hidden rounded-2xl bg-[#F5F5F5]">
           {product.image_url ? (
             <Image
               src={product.image_url}
@@ -106,14 +106,14 @@ export default async function ProductPage({
               priority
             />
           ) : (
-            <div className="flex h-full items-center justify-center text-sm text-[#76696A]">
+            <div className="flex h-full items-center justify-center text-sm text-[#666666]">
               Product image coming soon
             </div>
           )}
 
           {product.stock_status === "sold" && (
             <div className="absolute inset-0 flex items-center justify-center bg-black/45">
-              <span className="rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#702B40]">
+              <span className="rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#000000]">
                 SOLD OUT
               </span>
             </div>
@@ -121,7 +121,7 @@ export default async function ProductPage({
         </div>
 
         <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#702B40]">
+          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#000000]">
             {product.category}
           </p>
 
@@ -136,14 +136,14 @@ export default async function ProductPage({
 
             {product.old_price &&
               Number(product.old_price) > Number(product.price) && (
-                <span className="text-base text-[#76696A] line-through">
+                <span className="text-base text-[#666666] line-through">
                   KSh{" "}
                   {Number(product.old_price).toLocaleString("en-KE")}
                 </span>
               )}
           </div>
 
-          <p className="mt-6 whitespace-pre-line text-sm leading-7 text-[#76696A]">
+          <p className="mt-6 whitespace-pre-line text-sm leading-7 text-[#666666]">
             {product.description ||
               "A special find selected for your wardrobe."}
           </p>
@@ -176,14 +176,14 @@ export default async function ProductPage({
               href={whatsappUrl}
               target="_blank"
               rel="noreferrer"
-              className="mt-4 inline-flex w-full items-center justify-center gap-3 rounded-full border border-[#702B40] px-7 py-4 text-sm font-medium text-[#702B40] transition hover:bg-[#F4E7E8] sm:w-auto"
+              className="mt-4 inline-flex w-full items-center justify-center gap-3 rounded-full border border-[#000000] px-7 py-4 text-sm font-medium text-[#000000] transition hover:bg-[#F5F5F5] sm:w-auto"
             >
               <MessageCircle size={19} />
               Ask about this product
             </a>
           )}
 
-          <p className="mt-5 text-xs leading-6 text-[#76696A]">
+          <p className="mt-5 text-xs leading-6 text-[#666666]">
             Pickup: Dynamic Mall, Shop ML32, Ground Floor. Delivery
             arrangements can be confirmed with us on WhatsApp.
           </p>

@@ -47,7 +47,7 @@ export default function AddToCartButton({
       <button
         type="button"
         disabled
-        className="inline-flex w-full cursor-not-allowed items-center justify-center rounded-full bg-[#E8DFDE] px-7 py-4 text-sm font-medium text-[#76696A] sm:w-auto"
+        className="inline-flex w-full cursor-not-allowed items-center justify-center rounded-full bg-[#E5E5E5] px-7 py-4 text-sm font-medium text-[#666666] sm:w-auto"
       >
         Sold out
       </button>
@@ -59,7 +59,7 @@ export default function AddToCartButton({
       <button
         type="button"
         onClick={handleAddToCart}
-        className="inline-flex w-full items-center justify-center gap-3 rounded-full bg-[#702B40] px-7 py-4 text-sm font-medium text-white transition hover:bg-[#512033] sm:w-auto"
+        className="inline-flex w-full items-center justify-center gap-3 rounded-full bg-[#000000] px-7 py-4 text-sm font-medium text-white transition hover:bg-[#222222] sm:w-auto"
       >
         {added ? <Check size={19} /> : <ShoppingBag size={19} />}
         {added ? "Added to bag!" : "Add to bag"}
@@ -67,7 +67,7 @@ export default function AddToCartButton({
 
       <Link
         href="/cart"
-        className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-[#702B40] px-7 py-4 text-sm font-medium text-[#702B40] transition hover:bg-[#F4E7E8] sm:w-auto"
+        className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-[#000000] px-7 py-4 text-sm font-medium text-[#000000] transition hover:bg-[#F5F5F5] sm:w-auto"
       >
         View bag
         <ArrowRight size={17} />
