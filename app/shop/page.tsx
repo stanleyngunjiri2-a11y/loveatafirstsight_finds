@@ -100,10 +100,11 @@ export default async function ShopPage({
               <Link
                 key={category}
                 href={href}
-                className={`rounded-full border px-5 py-2.5 text-sm transition ${
+                aria-current={active ? "page" : undefined}
+                className={`inline-flex min-h-12 items-center justify-center rounded-full border-2 px-6 py-3 text-sm font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 ${
                   active
-                    ? "border-[#000000] bg-[#000000] text-white"
-                    : "border-[#E5E5E5] bg-white text-[#222222] hover:border-[#000000]"
+                    ? "border-black bg-black text-white shadow-sm"
+                    : "border-[#BDBDBD] bg-white text-black hover:border-black hover:bg-[#F3F3F3] active:bg-[#E5E5E5]"
                 }`}
               >
                 {category}
@@ -129,7 +130,7 @@ export default async function ShopPage({
               href="https://wa.me/254794625388"
               target="_blank"
               rel="noreferrer"
-              className="mt-7 inline-flex items-center gap-2 rounded-full bg-[#000000] px-6 py-3 text-sm text-white"
+              className="mt-7 inline-flex min-h-12 items-center justify-center gap-2 rounded-full border-2 border-black bg-black px-7 py-3 text-sm font-semibold text-white transition-colors duration-200 hover:bg-white hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2"
             >
               <MessageCircle size={17} />
               Ask about available pieces
