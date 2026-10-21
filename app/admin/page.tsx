@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState, type FormEvent } from "react";
+import { useCallback, useEffect, useState, type ChangeEvent, type FormEvent } from "react";
 
 type Product = {
   id: string;
@@ -46,6 +46,7 @@ export default function AdminDashboard() {
   const [orders, setOrders] = useState<CustomerOrder[]>([]);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
+  const [imageUploading, setImageUploading] = useState(false);
   const [error, setError] = useState("");
   const [notice, setNotice] = useState("");
   const [section, setSection] = useState<"products" | "orders">("products");
@@ -105,8 +106,79 @@ export default function AdminDashboard() {
     void loadDashboard();
   }, [loadDashboard]);
 
+  async function uploadProductImage(
+    event: ChangeEvent<HTMLInputElement>,
+  ) {
+    const file = event.target.files?.[0];
+
+    if (!file) return;
+
+    const allowedTypes = [
+      "image/jpeg",
+      "image/png",
+      "image/webp",
+      "image/avif",
+    ];
+
+    if (!allowedTypes.includes(file.type)) {
+      setError("Choose a JPG, PNG, WebP, or AVIF image.");
+      event.target.value = "";
+      return;
+    }
+
+    if (file.size === 0 || file.size > 5 * 1024 * 1024) {
+      setError("Choose an image smaller than or equal to 5 MB.");
+      event.target.value = "";
+      return;
+    }
+
+    setImageUploading(true);
+    setError("");
+    setNotice("");
+
+    try {
+      const uploadData = new FormData();
+      uploadData.append("file", file);
+
+      const response = await fetch("/api/admin/upload", {
+        method: "POST",
+        body: uploadData,
+      });
+
+      const data = await response.json();
+
+      if (response.status === 401) {
+        window.location.href = "/admin/login";
+        return;
+      }
+
+      if (!response.ok || !data.url) {
+        throw new Error(data.error || "Could not upload the image.");
+      }
+
+      setForm((current) => ({
+        ...current,
+        imageUrl: data.url,
+      }));
+
+      setNotice("Image uploaded successfully. You can now save the product.");
+    } catch (err) {
+      setError(
+        err instanceof Error ? err.message : "Could not upload the image.",
+      );
+    } finally {
+      setImageUploading(false);
+      event.target.value = "";
+    }
+  }
+
   async function addProduct(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+
+    if (imageUploading) {
+      setError("Wait for the image upload to finish.");
+      return;
+    }
     setSaving(true);
     setError("");
     setNotice("");
@@ -499,26 +571,69 @@ export default function AdminDashboard() {
                   />
                 </div>
 
-                <div>
-                  <label
-                    htmlFor="imageUrl"
-                    className="mb-1 block text-sm font-medium"
-                  >
-                    Product image URL
-                  </label>
-                  <input
-                    id="imageUrl"
-                    type="url"
-                    value={form.imageUrl}
-                    onChange={(e) =>
-                      setForm({ ...form, imageUrl: e.target.value })
-                    }
-                    className="w-full border border-[#E5E5E5] px-3 py-3"
-                    placeholder="https://..."
-                  />
-                  <p className="mt-1 text-xs leading-5 text-gray-500">
-                    Image upload is not enabled in this form yet.
-                  </p>
+                <div className="space-y-4">
+                  <div>
+                    <label
+                      htmlFor="productImage"
+                      className="mb-2 block text-sm font-medium"
+                    >
+                      Upload product image
+                    </label>
+
+                    <input
+                      id="productImage"
+                      type="file"
+                      accept="image/jpeg,image/png,image/webp,image/avif"
+                      onChange={uploadProductImage}
+                      disabled={imageUploading || saving}
+                      className="block w-full cursor-pointer border border-[#E5E5E5] bg-white text-sm file:mr-4 file:border-0 file:bg-[#000000] file:px-4 file:py-3 file:font-semibold file:text-white"
+                    />
+
+                    <p className="mt-2 text-xs leading-5 text-gray-500">
+                      Select a JPG, PNG, WebP, or AVIF image up to 5 MB.
+                    </p>
+
+                    {imageUploading && (
+                      <p className="mt-2 text-sm font-medium text-gray-700">
+                        Uploading image...
+                      </p>
+                    )}
+                  </div>
+
+                  {form.imageUrl && (
+                    <div>
+                      <p className="mb-2 text-sm font-medium">
+                        Image preview
+                      </p>
+
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={form.imageUrl}
+                        alt="Product image preview"
+                        className="h-48 w-full max-w-xs border border-[#E5E5E5] object-cover"
+                      />
+                    </div>
+                  )}
+
+                  <div>
+                    <label
+                      htmlFor="imageUrl"
+                      className="mb-1 block text-sm font-medium"
+                    >
+                      Or paste a product image URL
+                    </label>
+
+                    <input
+                      id="imageUrl"
+                      type="url"
+                      value={form.imageUrl}
+                      onChange={(e) =>
+                        setForm({ ...form, imageUrl: e.target.value })
+                      }
+                      className="w-full border border-[#E5E5E5] px-3 py-3"
+                      placeholder="https://..."
+                    />
+                  </div>
                 </div>
 
                 <div>
