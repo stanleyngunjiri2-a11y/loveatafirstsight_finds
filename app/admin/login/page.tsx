@@ -1,113 +1,107 @@
-import { redirect } from "next/navigation";
-import { isAdminAuthenticated } from "@/lib/auth";
+"use client";
 
-export const dynamic = "force-dynamic";
+import { useState, type FormEvent } from "react";
 
-export default async function AdminPage() {
-  const authenticated = await isAdminAuthenticated();
+export default function AdminLoginPage() {
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  if (!authenticated) {
-    redirect("/admin/login");
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    setError("");
+    setLoading(true);
+
+    try {
+      const response = await fetch("/api/admin/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ password }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        setError(data.error || "Unable to sign in. Please try again.");
+        return;
+      }
+
+      window.location.assign("/admin");
+    } catch {
+      setError("Unable to connect. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
-    <main className="min-h-screen bg-[#FFFFFF] px-5 py-10 text-[#000000] sm:px-8">
-      <div className="mx-auto max-w-6xl">
-        <header className="flex flex-wrap items-center justify-between gap-4 border-b border-[#E5E5E5] pb-6">
+    <main className="flex min-h-screen items-center justify-center bg-[#FAF7F4] px-5 py-12 text-[#252124]">
+      <section className="w-full max-w-md border border-[#E8DFDE] bg-white p-7 shadow-sm sm:p-10">
+        <div className="mb-8 text-center">
+          <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#702B40]">
+            LOVEATFIRSTSIGHT FINDS
+          </p>
+
+          <h1 className="mt-5 font-serif text-3xl">
+            Admin Login
+          </h1>
+
+          <p className="mt-3 text-sm leading-6 text-gray-600">
+            Sign in to manage your store, products and customer orders.
+          </p>
+        </div>
+
+        <form onSubmit={handleSubmit} className="space-y-5">
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#000000]">
-              LOVEATFIRSTSIGHT FINDS
-            </p>
-            <h1 className="mt-2 font-serif text-3xl sm:text-4xl">
-              Admin dashboard
-            </h1>
-            <p className="mt-2 text-sm text-gray-600">
-              Manage your store, products and customer orders.
-            </p>
+            <label
+              htmlFor="password"
+              className="mb-2 block text-sm font-semibold"
+            >
+              Admin Password
+            </label>
+
+            <input
+              id="password"
+              name="password"
+              type="password"
+              autoComplete="current-password"
+              required
+              autoFocus
+              value={password}
+              onChange={(event) => setPassword(event.target.value)}
+              className="w-full border border-[#E8DFDE] px-4 py-3 text-sm outline-none transition focus:border-[#702B40]"
+              placeholder="Enter your admin password"
+            />
           </div>
 
-          <form action="/api/admin/logout" method="POST">
-            <button
-              type="submit"
-              className="border border-[#000000] px-5 py-2.5 text-sm font-semibold text-[#000000] transition hover:bg-[#000000] hover:text-white"
+          {error && (
+            <p
+              role="alert"
+              className="border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700"
             >
-              Sign out
-            </button>
-          </form>
-        </header>
-
-        <section className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          <a
-            href="#products"
-            className="border border-[#E5E5E5] bg-white p-6 transition hover:border-[#000000]"
-          >
-            <span className="text-sm text-gray-500">Store management</span>
-            <h2 className="mt-3 font-serif text-2xl">Products</h2>
-            <p className="mt-2 text-sm leading-6 text-gray-600">
-              Add clothing, manage prices, update product details and control stock.
+              {error}
             </p>
-            <span className="mt-5 inline-block text-sm font-semibold text-[#000000]">
-              Manage products →
-            </span>
-          </a>
+          )}
 
-          <a
-            href="#orders"
-            className="border border-[#E5E5E5] bg-white p-6 transition hover:border-[#000000]"
+          <button
+            type="submit"
+            disabled={loading}
+            className="w-full bg-[#702B40] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#572032] disabled:cursor-not-allowed disabled:opacity-60"
           >
-            <span className="text-sm text-gray-500">Customer activity</span>
-            <h2 className="mt-3 font-serif text-2xl">Orders</h2>
-            <p className="mt-2 text-sm leading-6 text-gray-600">
-              Review customer orders and track their progress.
-            </p>
-            <span className="mt-5 inline-block text-sm font-semibold text-[#000000]">
-              View orders →
-            </span>
-          </a>
+            {loading ? "Signing in..." : "Sign In"}
+          </button>
+        </form>
 
-          <a
-            href="/shop"
-            target="_blank"
-            rel="noreferrer"
-            className="border border-[#E5E5E5] bg-white p-6 transition hover:border-[#000000]"
-          >
-            <span className="text-sm text-gray-500">Customer experience</span>
-            <h2 className="mt-3 font-serif text-2xl">View store</h2>
-            <p className="mt-2 text-sm leading-6 text-gray-600">
-              Open the public shop and see how customers view your products.
-            </p>
-            <span className="mt-5 inline-block text-sm font-semibold text-[#000000]">
-              Visit shop →
-            </span>
-          </a>
-        </section>
-
-        <section
-          id="products"
-          className="mt-10 border border-[#E5E5E5] bg-white p-6 sm:p-8"
+        <a
+          href="/"
+          className="mt-7 block text-center text-sm text-gray-600 transition hover:text-[#702B40]"
         >
-          <h2 className="font-serif text-2xl">Product management</h2>
-          <p className="mt-3 text-sm leading-6 text-gray-600">
-            The dashboard layout is ready. Next, we will connect this section to
-            your Neon database so you can add products, upload images, edit
-            prices and update availability.
-          </p>
-        </section>
-
-        <section
-          id="orders"
-          className="mt-6 border border-[#E5E5E5] bg-white p-6 sm:p-8"
-        >
-          <h2 className="font-serif text-2xl">Customer orders</h2>
-          <p className="mt-3 text-sm leading-6 text-gray-600">
-            We will connect this section to your orders database in the next step.
-          </p>
-        </section>
-
-        <footer className="mt-10 text-center text-xs text-gray-500">
-          LOVEATFIRSTSIGHT FINDS · Store administration
-        </footer>
-      </div>
+          &larr; Back to store
+        </a>
+      </section>
     </main>
   );
 }
