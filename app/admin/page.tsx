@@ -215,6 +215,89 @@ export default function AdminDashboard() {
     }
   }
 
+  async function replaceExistingProductImage(
+    product: Product,
+    file: File,
+  ) {
+    setError("");
+    setNotice("");
+
+    const allowedTypes = [
+      "image/jpeg",
+      "image/png",
+      "image/webp",
+      "image/avif",
+    ];
+
+    if (!allowedTypes.includes(file.type)) {
+      setError("Choose a JPG, PNG, WebP, or AVIF image.");
+      return;
+    }
+
+    if (file.size === 0 || file.size > 5 * 1024 * 1024) {
+      setError("Choose an image that is no larger than 5 MB.");
+      return;
+    }
+
+    setImageUploading(true);
+
+    try {
+      const formData = new FormData();
+      formData.append("file", file);
+
+      const uploadResponse = await fetch("/api/admin/upload", {
+        method: "POST",
+        body: formData,
+      });
+
+      const uploadData = await uploadResponse.json();
+
+      if (uploadResponse.status === 401) {
+        window.location.href = "/admin/login";
+        return;
+      }
+
+      if (!uploadResponse.ok || !uploadData.url) {
+        throw new Error(
+          uploadData.error || "Could not upload the image.",
+        );
+      }
+
+      const updateResponse = await fetch("/api/admin/products", {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          id: product.id,
+          imageUrl: uploadData.url,
+        }),
+      });
+
+      const updateData = await updateResponse.json();
+
+      if (updateResponse.status === 401) {
+        window.location.href = "/admin/login";
+        return;
+      }
+
+      if (!updateResponse.ok) {
+        throw new Error(
+          updateData.error || "Image uploaded, but the product was not updated.",
+        );
+      }
+
+      setNotice(`${product.name} image updated successfully.`);
+      await loadDashboard();
+    } catch (err) {
+      setError(
+        err instanceof Error
+          ? err.message
+          : "Could not update the product image.",
+      );
+    } finally {
+      setImageUploading(false);
+    }
+  }
+
   async function updateStock(product: Product) {
     setError("");
     setNotice("");
@@ -420,6 +503,34 @@ export default function AdminDashboard() {
                       )}
 
                       <div className="min-w-0 flex-1">
+                        <div className="mb-3">
+                          <label
+                            htmlFor={`replace-image-${product.id}`}
+                            className="mb-1 block text-sm font-semibold"
+                          >
+                            Change product photo
+                          </label>
+                          <input
+                            id={`replace-image-${product.id}`}
+                            type="file"
+                            accept="image/jpeg,image/png,image/webp,image/avif"
+                            disabled={imageUploading || saving}
+                            onChange={(event) => {
+                              const file = event.target.files?.[0];
+
+                              if (file) {
+                                void replaceExistingProductImage(product, file);
+                              }
+
+                              event.target.value = "";
+                            }}
+                            className="block w-full max-w-sm cursor-pointer border border-[#E5E5E5] bg-white text-sm file:mr-3 file:border-0 file:bg-[#000000] file:px-3 file:py-2 file:font-semibold file:text-white disabled:opacity-60"
+                          />
+                          <p className="mt-1 text-xs text-gray-500">
+                            Select a photo from your device (maximum 5 MB).
+                          </p>
+                        </div>
+
                         <p className="text-xs uppercase tracking-wider text-[#000000]">
                           {product.category}
                         </p>

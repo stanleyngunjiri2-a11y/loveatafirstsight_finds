@@ -129,11 +129,70 @@ export async function PATCH(request: Request) {
   try {
     const body = await request.json();
     const id = typeof body.id === "string" ? body.id : "";
+
+    if (!id) {
+      return NextResponse.json(
+        { error: "A valid product ID is required." },
+        { status: 400 },
+      );
+    }
+
+    // Replace the image on an existing product without creating a new product.
+    if (body.imageUrl !== undefined) {
+      const imageUrl =
+        typeof body.imageUrl === "string" ? body.imageUrl.trim() : "";
+
+      let parsedUrl: URL;
+
+      try {
+        parsedUrl = new URL(imageUrl);
+      } catch {
+        return NextResponse.json(
+          { error: "Please upload a valid product image." },
+          { status: 400 },
+        );
+      }
+
+      if (
+        !["https:", "http:"].includes(parsedUrl.protocol) ||
+        !parsedUrl.hostname
+      ) {
+        return NextResponse.json(
+          { error: "Please upload a valid product image URL." },
+          { status: 400 },
+        );
+      }
+
+      const rows = await sql`
+        UPDATE products
+        SET
+          image_url = ${imageUrl},
+          image_urls = ${JSON.stringify([imageUrl])}::jsonb,
+          updated_at = NOW()
+        WHERE id = ${id}::uuid
+        RETURNING id, name, image_url, image_urls
+      `;
+
+      if (!rows.length) {
+        return NextResponse.json(
+          { error: "Product not found." },
+          { status: 404 },
+        );
+      }
+
+      return NextResponse.json({
+        success: true,
+        message: "Product image updated successfully.",
+        product: rows[0],
+      });
+    }
+
+    // Keep the existing stock-status functionality.
     const stockStatus = body.stockStatus;
 
-    if (!id || !["available", "sold"].includes(stockStatus)) {
+    if (!["available", "sold"].includes(stockStatus)) {
       return NextResponse.json(
-        { error: "Invalid product or stock status." },
+        { error: "Invalid stock status." },
         { status: 400 },
       );
     }
@@ -154,10 +213,12 @@ export async function PATCH(request: Request) {
 
     return NextResponse.json({ success: true, product: rows[0] });
   } catch (error) {
-    console.error("Stock update failed:", error);
+    console.error("Product update failed:", error);
+
     return NextResponse.json(
-      { error: "Could not update stock." },
+      { error: "Could not update the product. Please try again." },
       { status: 500 },
     );
   }
 }
+
